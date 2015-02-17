@@ -8,6 +8,6 @@ df = pd.read_csv('BIC_pnum.csv')
 del df['a']
 
 plt.figure() 
-df.plot()
+df.plot(colormap='Dark2')
 plt.show()
 

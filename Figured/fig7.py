@@ -1,4 +1,8 @@
 # coding: utf-8
+import pandas as pd
+import matplotlib.pyplot as plt
+plt.style.use('ggplot')
+
 sets = pd.read_csv('set_size.csv')
 aic = pd.read_csv('AIC_final_like.csv')
 aicRF = pd.read_csv('AIC_RF.csv')
