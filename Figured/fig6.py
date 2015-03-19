@@ -3,17 +3,22 @@ import pandas as pd
 import matplotlib.pyplot as plt
 plt.style.use('ggplot')
 
-aic = pd.read_csv('aic_bs.csv')
-aic.columns = ['index','part']
+aic = pd.read_csv('rax_aic_bs.csv')
+aic.columns = ['index','aic']
 
-aicc = pd.read_csv('AICC_bs.csv')
-aicc.columns = ['index','part']
+aicc = pd.read_csv('rax_aicc_bs.csv')
+aicc.columns = ['index','aicc']
 
-bic = pd.read_csv('BIC_bs.csv')
-bic.columns = ['index','part']
+bic = pd.read_csv('rax_bic_bs.csv')
+bic.columns = ['index','bic']
 
-merged_inner = pd.merge(left=aic, right=aicc, left_on='index', right_on='index')
-merged_inner = pd.merge(left=merged_inner, right=bic, left_on='index', right_on='index')
-mi = merged_inner.drop('index',axis = 1)
-mi.plot(kind='hist', bins=20, stacked=True, colormap='Dark2')
+merged_inner = pd.merge(left=aicc, right=bic, left_index=True, right_index=True)
+merged_inner = pd.merge(left=merged_inner, right=aic, left_index=True, right_index=True)
+mi = merged_inner.drop(['index', 'index_x', 'index_y'],axis = 1)
+
+plt.figure()
+ax_list = mi.hist(sharex=True, sharey=True)
+ax_list[0][0].set_xlim((-100,100))
+ax_list[0][0].set_ylim((0,2500))
 plt.show()
+

@@ -1,0 +1,29 @@
+bayes: 167 best-scoring unpartitioned trees; 88 of which were 100+, 27 500+  lnL higher
+raxml: 63 best-scoring unpartitioned trees; 11 of which are 100+, 3 500+ lnL higher
+
+bayes: 116 of the best-scoring partitioned trees, 24 of which are 100+, 3 500+
+raxml: 19 of the best-scoring partitioned trees,  8 of which are 100+, 1 500+
+
+Bayes:
+AICc       91
+BIC        27
+unpart    52  [trees for which all three metrics are worse: on chart bayes_final, there are 156 trees below 0, relecting this]
+interpretation: in 20% of cases, even though a partition scheme is favored, unpartitioned data performs better. In all cases in which Bayesian estimation outperforms RAxML, partitioning improves score.
+
+RAX:
+AIC         169
+AICC         42
+BIC          45
+unpart      3 [for which all three metrics are worse, but there are bars where individual metrics are worse on rax_final]
+interpretation: in <1% of data sets did partitioning not improve data estimation.
+
+
+AICC_l      10
+AIC_b       79
+AICc_b      20
+BIC_b       17
+BIC_l        9
+unpart_b    18
+unpart_l     1
+dtype: int64
+
